@@ -96,6 +96,7 @@ func _ready():
 # TODO allow skins to be locked behind progression -- that means also making a save system
 # If bot_id is an EnemyType, a basegame bot will be given the skin. If it's a String, a modded bot.
 static func register_skin(bot_id, skin_id : String, skin_name : String, icon_path: String, spritesheet_path : String, unlocked_by_default: bool = true, unlock_requirement : String = "", flavour_text : String = "", extra_sprites : Dictionary = {}):
+	if bot_id not in bot_skins: bot_skins[bot_id] = {}
 	bot_skins[bot_id][skin_id] = {
 		"name": skin_name,
 		"path": icon_path,
