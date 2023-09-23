@@ -31,6 +31,11 @@ func install_script_extensions() -> void:
 	# Currently, this cannot be patched. Patching it causes it to take first priority as an autoload,
 	#then it loads the bots, causing their patches to fail. 
 	# ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Globals/GameManager.gd"))
+	# -------- MISC --------
+#	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Scripts/Hosts/Enemy.gd"))
+#	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Scripts/Player/Player.gd"))
+#	ModLoaderMod.install_script_extension(extensions_dir_path.path_join("Scripts/Player/UpgradeManager.gd"))
+	
 
 
 func add_translations() -> void:
