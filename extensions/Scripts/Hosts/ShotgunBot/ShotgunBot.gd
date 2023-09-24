@@ -2,8 +2,14 @@ extends "res://Scripts/Hosts/ShotgunBot/ShotgunBot.gd"
 
 @onready var SkinManager = $"/root/ModLoader/RAModding-VRAM/SkinManager"
 
+@onready var AnimationManager = get_node("/root/ModLoader/RAModding-VRAM/AnimationManager")
+
+# I dislike this immensely
+# TODO apply to all bots
 func _ready():
 	super._ready()
+	for animation in AnimationManager.animations[Enemy.EnemyType.SHOTGUN].keys():
+		animplayer.add_animation_library(animation, AnimationManager.animations[Enemy.EnemyType.SHOTGUN][animation]["animation_library"])
 
 func handle_skin():
 	if not upgrades.is_empty():

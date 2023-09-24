@@ -14,6 +14,7 @@ func _init(mod_loader = ModLoader) -> void:
 	# Add globals
 	_add_child_class("res://mods-unpacked/RAModding-VRAM/UpgradesHelper.gd", "UpgradesHelper")
 	_add_child_class("res://mods-unpacked/RAModding-VRAM/SkinManager.gd", "SkinManager")
+	_add_child_class("res://mods-unpacked/RAModding-VRAM/AnimationManager.gd", "AnimationManager")
 	# Add extensions
 	install_script_extensions()
 	# Add translations
