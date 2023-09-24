@@ -2,9 +2,6 @@ extends "res://Scripts/Hosts/ChainBot/ChainBot.gd"
 
 @onready var SkinManager = $"/root/ModLoader/RAModding-VRAM/SkinManager"
 
-func _ready():
-	super._ready()
-
 func handle_skin():
 	if not upgrades.is_empty():
 		for upgrade in upgrades.keys():
