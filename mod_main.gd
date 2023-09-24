@@ -51,4 +51,3 @@ func _add_child_class(child_path : String, child_name : String):
 func _ready() -> void:
 	ModLoaderLog.info("Ready!", AUTHORNAME_MODNAME_LOG_NAME)
 	print("Modded! Woohoo!")
-	#print(UpgradesHelper.register_upgrade("test", "res://icon.png"))
