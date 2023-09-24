@@ -8,6 +8,7 @@ extends "res://Scripts/Hosts/ShotgunBot/ShotgunBot.gd"
 # TODO apply to all bots
 func _ready():
 	super._ready()
+	print("Loading animations for Steeltoe!")
 	for animation in AnimationManager.animations[Enemy.EnemyType.SHOTGUN].keys():
 		animplayer.add_animation_library(animation, AnimationManager.animations[Enemy.EnemyType.SHOTGUN][animation]["animation_library"])
 

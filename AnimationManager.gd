@@ -9,13 +9,6 @@ static var spritesheets := {}
 # (this is abstracted away, obviously)
 static var animations := {}
 
-static func play_animation(bot : Enemy, bot_id, animation_id : String):
-	var bot_texture = bot.sprite.texture
-	bot.sprite.texture = spritesheets[animations[bot_id][animation_id]["spritesheet_id"]]
-	bot.play_animation(animation_id)
-	await bot.anim_player.animation_finished
-	bot.sprite.texture = bot_texture
-
 static func register_spritesheet(spritesheet_id : String, spritesheet: Texture2D):
 	spritesheets[spritesheet_id] = spritesheet
 
