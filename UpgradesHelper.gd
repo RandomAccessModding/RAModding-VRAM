@@ -11,7 +11,7 @@ static var _mod_upgrades := {
 # Refer to res://Scripts/Upgrades.gd for what each field means.
 # 'name' can be either a String or the dictionary that contains every field.
 # 'icon' is a path to an upgrade icon.
-static func register_upgrade(id: String, name, icon: String, desc: String = "", effects: Array = [], type: Enemy.EnemyType = Enemy.EnemyType.UNKNOWN, tier: int = -1, max_stack: int = -1, precludes: Array = [], ai_useable: bool = false) -> bool:
+static func register_upgrade(id: String, name, icon: String = "", desc: String = "", effects: Array = [], type: Enemy.EnemyType = Enemy.EnemyType.UNKNOWN, tier: int = -1, max_stack: int = -1, precludes: Array = [], ai_useable: bool = false) -> bool:
 	var overriden : bool = _mod_upgrades.has(id)
 	if name is Dictionary:
 		_mod_upgrades[id] = name
