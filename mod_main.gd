@@ -13,8 +13,9 @@ func _init(mod_loader = ModLoader) -> void:
 	mod_dir_path = ModLoaderMod.get_unpacked_dir().path_join(AUTHORNAME_MODNAME_DIR)
 	# Add globals
 	_add_child_class("res://mods-unpacked/RAModding-VRAM/UpgradesHelper.gd", "UpgradesHelper")
-	_add_child_class("res://mods-unpacked/RAModding-VRAM/SkinManager.gd", "SkinManager")
-	_add_child_class("res://mods-unpacked/RAModding-VRAM/AnimationManager.gd", "AnimationManager")
+	var skin = _add_child_class("res://mods-unpacked/RAModding-VRAM/SkinManager.gd", "SkinManager")
+	var animation = _add_child_class("res://mods-unpacked/RAModding-VRAM/AnimationManager.gd", "AnimationManager")
+	animation.SkinManager = skin
 	# Add extensions
 	install_script_extensions()
 	# Add translations
@@ -47,6 +48,7 @@ func _add_child_class(child_path : String, child_name : String):
 	var child = load(child_path).new()
 	child.name = child_name
 	add_child(child)
+	return child
 
 func _ready() -> void:
 	ModLoaderLog.info("Ready!", AUTHORNAME_MODNAME_LOG_NAME)
