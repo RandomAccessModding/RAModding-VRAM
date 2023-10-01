@@ -11,6 +11,11 @@ static var animations := {}
 
 static var SkinManager
 
+static func get_animations_for_bot(bot_id) -> Dictionary:
+	if bot_id in animations:
+		return animations[bot_id]
+	return {}
+
 static func register_spritesheet(spritesheet_id : String, spritesheet: Texture2D):
 	spritesheets[spritesheet_id] = spritesheet
 

@@ -7,14 +7,14 @@ extends "res://Scripts/Hosts/ShotgunBot/ShotgunBot.gd"
 var skin_id = 0
 var loaded_skin
 
+
 # I dislike this immensely
 # TODO apply to all bots
 func _ready():
 	super._ready()
 	print("Loading animations for Steeltoe!")
-	for animation in AnimationManager.animations[Enemy.EnemyType.SHOTGUN].keys():
+	for animation in AnimationManager.get_animations_for_bot(Enemy.EnemyType.SHOTGUN).keys():
 		animplayer.add_animation_library(animation, AnimationManager.animations[Enemy.EnemyType.SHOTGUN][animation]["library"])
-
 
 func handle_skin():
 	if not upgrades.is_empty():
