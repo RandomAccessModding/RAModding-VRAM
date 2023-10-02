@@ -111,3 +111,9 @@ static func register_skin(bot_id, skin_id : String, skin_name : String, icon_pat
 # upgrade_id is the id of the upgrade, skin_id that of the skin.
 static func give_upgrade_skin(bot_type, upgrade_id : String, skin_id):
 	upgrade_skins[bot_type][upgrade_id] = skin_id
+
+static func get_skin_or_default(bot_id, skin_id):
+	if skin_id in bot_skins[bot_id]:
+		return bot_skins[bot_id][skin_id]
+	else:
+		return bot_skins[bot_id][0]

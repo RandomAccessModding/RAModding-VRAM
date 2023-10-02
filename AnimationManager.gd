@@ -11,7 +11,7 @@ static var animations := {}
 
 static var SkinManager
 
-static func get_animations_for_bot(bot_id) -> Dictionary:
+static func get_all_animations_for_bot(bot_id) -> Dictionary:
 	if bot_id in animations:
 		return animations[bot_id]
 	return {}
@@ -46,11 +46,17 @@ static func add_skin_to_animation(bot_id, animation_id : String, spritesheet_id 
 	animations[bot_id][animation_id]["spritesheets"][skin] = spritesheet_id
 	animations[bot_id][animation_id]["spritesheets"]["extra_spritesheet_ids"][skin] = extra_spritesheet_ids
 
+# return an animation for a given skin or the default skin
+static func get_animation(bot_id, skin_id, library_id : String, animation_id : String):
+	if skin_id in animations[bot_id][library_id]["spritesheets"]:
+		return animations[bot_id][library_id]["spritesheets"][skin_id]
+	return animations[bot_id][library_id]["spritesheets"][0]
+
 # Play a custom animation on this bot.
 # Usually, you'll pass in `self` for bot.
 # Instead of "library/animation" you do "library", "animation".
 static func play_animation(bot : Enemy, skin, library_id : String, animation_name : String):
-	var new_sprite = spritesheets[animations[bot.enemy_type][library_id]["spritesheets"][skin]]
+	var new_sprite = spritesheets[get_animation(bot.enemy_type, skin, library_id, animation_name)]
 	var normal_hframes = bot.sprite.hframes
 	var normal_vframes = bot.sprite.vframes
 	bot.sprite.texture = new_sprite

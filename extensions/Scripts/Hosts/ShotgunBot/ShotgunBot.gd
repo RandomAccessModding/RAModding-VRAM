@@ -13,7 +13,7 @@ var loaded_skin
 func _ready():
 	super._ready()
 	print("Loading animations for Steeltoe!")
-	for animation in AnimationManager.get_animations_for_bot(Enemy.EnemyType.SHOTGUN).keys():
+	for animation in AnimationManager.get_all_animations_for_bot(Enemy.EnemyType.SHOTGUN).keys():
 		animplayer.add_animation_library(animation, AnimationManager.animations[Enemy.EnemyType.SHOTGUN][animation]["library"])
 
 func handle_skin():
@@ -32,4 +32,8 @@ func handle_skin():
 		if _skin in _shotgun_skins:
 			skin_id = _skin
 			loaded_skin = load(_shotgun_skins[_skin]["sprite_sheet_path"])
+			sprite.texture = loaded_skin
+		else:
+			skin_id = 0
+			loaded_skin = load(_shotgun_skins[0]["sprite_sheet_path"])
 			sprite.texture = loaded_skin
